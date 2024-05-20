@@ -9,7 +9,7 @@
 	</p>
 	<p>
 		<%= form.label :status%><br>
-		<%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
+		<%= form.select :status, Visible::VALID_STATUSES, selected: @article.status || 'public' %>
 	</p>
 	<p>
 		<%= form.submit %>
