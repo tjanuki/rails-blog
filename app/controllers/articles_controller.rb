@@ -1,7 +1,10 @@
+require "active_support"
 class ArticlesController < ApplicationController
   http_basic_authenticate_with name: "dhh", password: "secret",except: [:index, :show]
 
   def index
+    @helper = {a: 1}.with_indifferent_access["a"]
+
     @articles = Article.all
   end
 
