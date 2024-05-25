@@ -5,8 +5,5 @@ class Article < ApplicationRecord
 
 	validates :title, presence: true
 	validates :body, presence: true, length: { minimum: 10}
-  validates :status, presence: true, inclusion: { in: %w[draft published archived] }
-
-  enum status: { draft: 'draft', published: 'published', archived: 'archived' }
-
+  validates :status, presence: true
 end

@@ -19,11 +19,19 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not article.save
   end
 
+  test "should not save article without status" do
+    article = Article.new
+    article.title = "Title"
+    article.body = "Body longer than 10 characters"
+    assert_not article.save
+  end
+
   test "should save article with title and body" do
     article = Article.new
     article.title = "Title"
     article.body = "Body longer than 10 characters"
-    article.status = "draft"
+    article.status = "public"
+
     assert article.save, article.errors.full_messages.to_sentence
   end
 end
